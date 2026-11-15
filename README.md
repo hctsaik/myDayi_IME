@@ -13,6 +13,8 @@ reproducible article-level regression tests.
 - `lua/` contains the active candidate filter.
 - `test/article_regression.py` tests automatic Dayi output against the pinned
   Traditional Chinese Wikipedia article `臺灣`.
+- `macos/` contains an optional Squirrel phrase table, installation notes,
+  source attributions, and word-level evaluation results.
 
 ## Rebuild settings
 
@@ -23,6 +25,10 @@ python build_dayi2_single_char_weights.py
 
 Copy the resulting YAML files and `lua/` into `%APPDATA%\Rime`, then deploy
 the schema with the included `deploy_to_rime.ps1` workflow.
+
+## macOS phrase supplement
+
+See [`macos/README.md`](macos/README.md) for the optional phrase-weight table. It is installed separately and does not change the Windows root dictionaries. The reported score is exact first-candidate match for lexically segmented 2–4 Han-character words.
 
 The Sinica word-frequency snapshot is a local personal-use input and is
 intentionally not redistributed. Place `sinica_words.json` in

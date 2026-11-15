@@ -1,0 +1,71 @@
+{
+  "metric": "Rime first-candidate exact match for one lexically segmented 2–4 Han-character word; not character hit rate.",
+  "runtime": {
+    "engine": "librime 1.17.0 bundled with Squirrel 1.1.2",
+    "schema_base_commit": "da9383918ff8ab3af4e0919373b871a595c7bf49",
+    "userdb_included": false
+  },
+  "training": {
+    "wikipedia_article_count": 29,
+    "holdout_articles_main": 11,
+    "extra_holdout_articles": 7,
+    "dictionary_entries": 35302,
+    "two_to_four_han_coverage": 1.0
+  },
+  "dictionary": {
+    "path": "macos/wiki_phrase_weights.dict.yaml",
+    "name": "wiki_phrase_weights",
+    "size_bytes": 791200,
+    "sha256": "74aebcf2ed546d8724a4aab55f5ed53524b52202dc29a19161c5cb7e1558c7d9",
+    "codebook": "Only public GitHub main dayi2.dict.yaml and common_words_import.dict.yaml; no local boost/userdb/personal overrides."
+  },
+  "main_holdout": {
+    "baseline": {
+      "phrase_types": 6744,
+      "word_events": 37247,
+      "first_candidate_hits": 33158,
+      "top1": 0.8902193465245523,
+      "coverage": 1.0
+    },
+    "trained": {
+      "phrase_types": 6744,
+      "word_events": 37247,
+      "first_candidate_hits": 35903,
+      "top1": 0.9639165570381507,
+      "coverage": 1.0
+    },
+    "delta_first_candidate_hits": 2745,
+    "delta_percentage_points": 7.3697210513598455
+  },
+  "extra_holdout": {
+    "baseline": {
+      "phrase_types": 376,
+      "word_events": 648,
+      "first_candidate_hits": 623,
+      "top1": 0.9614197530864198,
+      "coverage": 1.0
+    },
+    "trained": {
+      "phrase_types": 376,
+      "word_events": 648,
+      "first_candidate_hits": 638,
+      "top1": 0.9845679012345679,
+      "coverage": 1.0
+    },
+    "delta_first_candidate_hits": 15,
+    "delta_percentage_points": 2.314814814814814
+  },
+  "source_filtering": {
+    "included": [
+      "Wikipedia article phrase frequencies from the 29 training pages",
+      "NAER COCT general word frequency prior, >= 1 per million"
+    ],
+    "excluded": [
+      "TOCFL-only entries and TOCFL ranking signal",
+      "userdb",
+      "personal phrase corrections",
+      "unverified local mydayi_boost"
+    ]
+  },
+  "limitations": "Holdout article text is separate from training; the score measures isolated word candidate ranking, not continuous sentence segmentation or personal typing history."
+}
